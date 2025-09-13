@@ -21,7 +21,6 @@ The target hardware is an Intel NUC or a mini PC with similar processing power.
 git clone https://github.com/ELMatero6/carOS.git
 cd carOS
 install.bat
-run.bat
 ```
 *Without Git*
 - Clone the Repo
