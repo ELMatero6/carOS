@@ -15,10 +15,15 @@ The target hardware is an Intel NUC or a mini PC with similar processing power.
 - Create an easy-to-install Ubuntu-based ISO  
 
 ## Installation
-
-Clone the repository:
+*With Git*
+- Run these commands
 ```sh
 git clone https://github.com/ELMatero6/carOS.git
 cd carOS
 install.bat
 run.bat
+```
+*Without Git*
+- Clone the Repo
+- Double Click Install.bat
+- Follow the prompts
