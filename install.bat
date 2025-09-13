@@ -9,8 +9,7 @@ set PY_VERSION=3.12.6
 set PY_URL=https://www.python.org/ftp/python/%PY_VERSION%/python-%PY_VERSION%-embed-amd64.zip
 set PY_DIR=python
 set PY_ZIP=python.zip
-set GET_PIP_URL=https://bootstrap.pypa.io/get-pip.py
-set GET_PIP=get-pip.py
+set GET_PIP=tools\get-pip.py
 
 echo [INFO] Checking for portable Python...
 
@@ -37,9 +36,7 @@ if exist "%PY_DIR%\python.exe" (
 )
 
 echo [INFO] Installing pip...
-powershell -Command "Invoke-WebRequest -Uri %GET_PIP_URL% -OutFile %GET_PIP%"
-"%PY_DIR%\python.exe" %GET_PIP%
-del %GET_PIP%
+"%PY_DIR%\python.exe" "%GET_PIP%"
 
 echo [INFO] Upgrading pip...
 "%PY_DIR%\python.exe" -m pip install --upgrade pip
@@ -47,7 +44,13 @@ echo [INFO] Upgrading pip...
 echo [INFO] Installing project requirements...
 "%PY_DIR%\python.exe" -m pip install -r requirements.txt
 
-echo [OK] Setup complete. Run CarOS with:
-echo     "%PY_DIR%\python.exe main.py"
+echo.
+echo [OK] Setup complete.
+choice /m "Do you want to run CarOS now?"
+if errorlevel 1 (
+    if %errorlevel%==1 (
+        call run.bat
+    )
+)
 
 pause
