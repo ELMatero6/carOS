@@ -42,7 +42,7 @@ echo [INFO] Upgrading pip...
 "%PY_DIR%\python.exe" -m pip install --upgrade pip
 
 echo [INFO] Installing project requirements...
-"%PY_DIR%\python.exe" -m pip install -r requirements.txt
+"%PY_DIR%\python.exe" -m pip install -r requirements.txt --no-cache-dir
 
 echo.
 echo [OK] Setup complete.
